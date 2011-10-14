@@ -1,11 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://yoursite.com/</loc>
-        <lastmod>2011-10-14T14:13:53+01:00</lastmod>
+        <loc>
+            http://fierce-meadow-2616.herokuapp.com/blog/2011/10/14/right-so-here-we-are-then/
+        </loc>
+        <lastmod>2011-10-14T16:08:04+01:00</lastmod>
     </url>
     <url>
-        <loc>http://yoursite.com/blog/archives/</loc>
-        <lastmod>2011-10-14T14:13:53+01:00</lastmod>
+        <loc>http://fierce-meadow-2616.herokuapp.com/</loc>
+        <lastmod>2011-10-14T16:08:04+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://fierce-meadow-2616.herokuapp.com/blog/archives/</loc>
+        <lastmod>2011-10-14T16:08:04+01:00</lastmod>
     </url>
 </urlset>
