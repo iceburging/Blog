@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Installing RVM in Oneiric - Something for the weekend</title>
+  <meta name="author" content="Russ Giles">
+
+  
+  <meta name="description" content="For those of you that don&#8217;t know Oneiric Ocelot is the latest incarnation of the venerable Ubuntu Linux distribution and was released at the ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://fierce-meadow-2616.herokuapp.com/blog/2011/10/21/installing-rvm-in-oneiric/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Something for the weekend" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Something for the weekend</a></h1>
+  
+    <h2>A Ruby/Rails/Technology blog</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:fierce-meadow-2616.herokuapp.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Installing RVM in Oneiric</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-10-21T18:06:00+01:00" pubdate  data-updated="true" >Oct 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>For those of you that don&#8217;t know Oneiric Ocelot is the latest incarnation of the venerable Ubuntu Linux distribution and was released at the back end of last week. This being the case today I finally got around to setting it up as a virual machine and taking a look.</p>
+
+<p>This then is to be quick guide as to what is required to accomplish a sucessful Ruby on Rails install using RVM on Ubuntu 11.10.</p>
+
+<p>So first grab yourself a copy of <a href="http://www.ubuntu.com/download">Oneiric Ocelot</a> and get  it installed.</p>
+
+<p>Once you are up and running the fun can start. The first thing we need to do is install git and curl since these don&#8217;t come installed with Ubuntu by default.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install curl git-core</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When completed we can go ahead and make use of our new tools to grab the latest release of RVM and get it installed.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bash &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+</span><span class='line'>echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM function' &gt;&gt; ~/.bashrc</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should see a whole bunch of install output. If you don&#8217;t then the chances are that curl is failing to find the data (Tip: check your proxy settings).</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install build-essential libreadline6-dev lib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf curses-dev automake libtool bison subversion</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So, at this point we should have RVM all set-up. Lets test it.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>type rvm | head -1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should see <em>rvm is a function</em> and can proceed to install Ruby 1.9.2 using RVM.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rvm install 1.9.2</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If during the installation you find that it is failing to download rubygems then you can manually download the rubygems.tgz and unpack it in the RVM source directory. Then a second installation attempt sholud prove more sucessful.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~/Downloads
+</span><span class='line'>wget http://production.cf.rubygems.org/rubygems/rubygems-1.8.10.tgz
+</span><span class='line'>cd ~/.rvm/src/
+</span><span class='line'>tar -xf ~/Downloads/rubygems-1.8-10.tgz
+</span><span class='line'>rm -r ~/Downloads/rubygems-1.8.10.tgz
+</span><span class='line'>rvm install 1.9.2</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When it looks like we have a sucessful install we need to tell the RVM to switch to Ruby 1.9.2 and use it as default. Then we can check the reported version and its installed path.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rvm use 1.9.2 --default
+</span><span class='line'>ruby -v
+</span><span class='line'>which ruby</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Finally install Bundler and the latest version of Rails (3.1 at time of writing)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install bundler
+</span><span class='line'>gem install rails</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thats it! You are ready to Rock. Enjoy.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Russ Giles</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-10-21T18:06:00+01:00" pubdate  data-updated="true" >Oct 21<span>st</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rvm/'>RVM</a>, <a class='category' href='/blog/categories/rails-3-1/'>Rails 3.1</a>, <a class='category' href='/blog/categories/ruby-1-9-2/'>Ruby 1.9.2</a>, <a class='category' href='/blog/categories/ubuntu-11-10/'>Ubuntu 11.10</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://fierce-meadow-2616.herokuapp.com/blog/2011/10/21/installing-rvm-in-oneiric/" data-via="iceburging" data-counturl="http://fierce-meadow-2616.herokuapp.com/blog/2011/10/21/installing-rvm-in-oneiric/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/10/21/installing-rvm-in-oneiric/">Installing RVM in Oneiric</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/10/14/right-so-here-we-are-then/">Right So Here We Are Then</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/iceburging">@iceburging</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'iceburging',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("iceburging", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/iceburging" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @iceburging</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - Russ Giles -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>
