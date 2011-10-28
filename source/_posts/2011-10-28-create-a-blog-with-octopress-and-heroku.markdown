@@ -4,6 +4,11 @@ title: "Create a Blog With Octopress and Heroku"
 date: 2011-10-28 18:17
 comments: true
 categories:
+- RVM
+- Ruby 1.9.2
+- Heroku
+- Octopress
+- Jekyll
 ---
 
 So you want to get started blogging and you are looking at my blog with envy wondering just how I did it. Well OK maybe you aren't, but if you were then you are in luck because i'm about to tell you.
