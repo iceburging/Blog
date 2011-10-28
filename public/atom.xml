@@ -4,7 +4,7 @@
   <title><![CDATA[Something for the weekend]]></title>
   <link href="http://fierce-meadow-2616.herokuapp.com/atom.xml" rel="self"/>
   <link href="http://fierce-meadow-2616.herokuapp.com/"/>
-  <updated>2011-10-21T22:10:55+01:00</updated>
+  <updated>2011-10-28T19:28:01+01:00</updated>
   <id>http://fierce-meadow-2616.herokuapp.com/</id>
   <author>
     <name><![CDATA[Russ Giles]]></name>
@@ -12,6 +12,108 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Create a Blog With Octopress and Heroku]]></title>
+    <link href="http://fierce-meadow-2616.herokuapp.com/blog/2011/10/28/create-a-blog-with-octopress-and-heroku/"/>
+    <updated>2011-10-28T18:17:00+01:00</updated>
+    <id>http://fierce-meadow-2616.herokuapp.com/blog/2011/10/28/create-a-blog-with-octopress-and-heroku</id>
+    <content type="html"><![CDATA[<p>So you want to get started blogging and you are looking at my blog with envy wondering just how I did it. Well OK maybe you aren&#8217;t, but if you were then you are in luck because i&#8217;m about to tell you.</p>
+
+<p>As mentioned in my first post &#8221;<a href="http://fierce-meadow-2616.herokuapp.com/blog/2011/10/14/right-so-here-we-are-then">right so here we are then</a>&#8221; this blog is hosted on <a href="http://www.heroku.com">Heroku</a> and is based on the <a href="http://octopress.org/">Octopress</a> framework for <a href="https://github.com/mojombo/jekyll">Jekyll</a> which is essentially a static site generator written in Ruby.</p>
+
+<p>So what does it take to hook these things together and start blogging then? Not much.</p>
+
+<p>We start by taking a clone from the Octopress repository.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The octopress project includes a <code>.rvmrc</code> file which tells RVM which version of ruby to use. To prevent abuse od this feature the first time we switch into the octopress directory RVM will ask us to confirm that we trust the <code>.rvmrc</code> file.</p>
+
+<p>So go ahead and switch into the octopress directory and agree to using the <code>.rvmrc</code> file.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd octopress</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we can check that we are looking at the correct version of Ruby (1.9.2), install the bundler gem and use it to install remaining dependencies.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby --version  # Should return Ruby 1.9.2
+</span><span class='line'>gem install bundler
+</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We complete the process by running a rake task to install the components that makeup the default Octopress theme.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>At this point we have a local install of Octopress/Jekyll and it is time to play with Heroku. Head over to thier <a href="https://api.heroku.com/signup">sign up page</a> to create an account. You will also need to have a public ssh key named <code>id_rsa.pub</code> available. If you haven&#8217;t yet set up a public/private ssh key pair then run.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh-keygen -t rsa -C "your_email@youremail.com"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you need more information on the process then i&#8217;d suggest looking at the <a href="http://help.github.com/linux-set-up-git/">github setup page</a> for details.</p>
+
+<p>Most of the interactions with Heroku happen via the teminal through the Heroku gem so go ahead and install it. Then use it to create a new Heroku application from your Octopress directory.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install herkou
+</span><span class='line'>heroku create</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should see that a Heroku application has been created for you and the address listed. The Heroku gem will also have added the Heroku app as a git remote.</p>
+
+<p>All we need to do now is to create some content and then push our new blog to Heroku.
+Run <code>rake new_post["my first post"]</code> to create a new post and open in your text editor of choice. By default Octopress uses <a href="http://daringfireball.net/projects/markdown">Markdown</a> to provide the text formatting.</p>
+
+<p>Open the resulting <code>.markdown</code> file and add some content as so:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---
+</span><span class='line'>layout: post
+</span><span class='line'>title: "My First Post"
+</span><span class='line'>date: 2011-09-28 18:00
+</span><span class='line'>comments: true
+</span><span class='line'>categories:
+</span><span class='line'>---
+</span><span class='line'>
+</span><span class='line'>Hello here I am one in seven billion!</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Once you are done and you have saved the we build the static content using <code>rake generate</code>, preview the blog locally on <a href="">localhost:4000</a> using <code>rake preview</code>, commit our project locally and then push it to heroku.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate
+</span><span class='line'>rake preview
+</span><span class='line'>git add .
+</span><span class='line'>git commit -a -m 'my first post'
+</span><span class='line'>git push heroku master</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If all goes well you should see heroku deploy your code. All that remains then is to go and check out your new blog for real!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Installing RVM in Oneiric]]></title>
