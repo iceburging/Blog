@@ -3,8 +3,8 @@
 # ----------------------- #
 
 url: http://fierce-meadow-2616.herokuapp.com
-title: Something for the weekend
-subtitle: A Ruby/Rails/Technology blog
+title: Chips and Scraps
+subtitle: A Ruby/Rails/Web-Technology blog
 author: Russ Giles
 simple_search: http://google.com/search
 
@@ -80,7 +80,8 @@ disqus_short_name: sftw
 disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id:
-   
+google_analytics_tracking_id: UA-12351828-2
+
 # Facebook Like
-facebook_like: true   
+facebook_like: true
+

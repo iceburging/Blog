@@ -20,7 +20,7 @@ So what does it take to hook these things together and start blogging then? Not 
 We start by taking a clone from the Octopress repository.
 
 ```
-git clone git://github.com/imathis/octopress.git octopress
+$ git clone git://github.com/imathis/octopress.git octopress
 ```
 
 The octopress project includes a `.rvmrc` file which tells RVM which version of ruby to use. To prevent abuse od this feature the first time we switch into the octopress directory RVM will ask us to confirm that we trust the `.rvmrc` file.
@@ -28,35 +28,35 @@ The octopress project includes a `.rvmrc` file which tells RVM which version of 
 So go ahead and switch into the octopress directory and agree to using the `.rvmrc` file.
 
 ```
-cd octopress
+$ cd octopress
 ```
 
 Now we can check that we are looking at the correct version of Ruby (1.9.2), install the bundler gem and use it to install remaining dependencies.
 
 ```
-ruby --version  # Should return Ruby 1.9.2
-gem install bundler
-bundle install
+$ ruby --version  # Should return Ruby 1.9.2
+$ gem install bundler
+$ bundle install
 ```
 
 We complete the process by running a rake task to install the components that makeup the default Octopress theme.
 
 ```
-rake install
+$ rake install
 ```
 
 At this point we have a local install of Octopress/Jekyll and it is time to play with Heroku. Head over to thier [sign up page](https://api.heroku.com/signup) to create an account. You will also need to have a public ssh key named `id_rsa.pub` available. If you haven't yet set up a public/private ssh key pair then run.
 
 ```
-ssh-keygen -t rsa -C "your_email@youremail.com"
+$ ssh-keygen -t rsa -C "your_email@youremail.com"
 ```
 If you need more information on the process then i'd suggest looking at the [github setup page](http://help.github.com/linux-set-up-git/) for details.
 
 Most of the interactions with Heroku happen via the teminal through the Heroku gem so go ahead and install it. Then use it to create a new Heroku application from your Octopress directory.
 
 ```
-gem install herkou
-heroku create
+$ gem install herkou
+$ heroku create
 ```
 
 You should see that a Heroku application has been created for you and the address listed. The Heroku gem will also have added the Heroku app as a git remote.
@@ -81,11 +81,11 @@ Hello here I am one in seven billion!
 Once you are done and you have saved the we build the static content using `rake generate`, preview the blog locally on [localhost:4000]() using `rake preview`, commit our project locally and then push it to heroku.
 
 ```
-rake generate
-rake preview
-git add .
-git commit -a -m 'my first post'
-git push heroku master
+$ rake generate
+$ rake preview
+$ git add .
+$ git commit -a -m 'my first post'
+$ git push heroku master
 ```
 
 If all goes well you should see heroku deploy your code. All that remains then is to go and check out your new blog for real!
