@@ -90,6 +90,8 @@
 
 <p>So what does it take to hook these things together and start blogging then? Not much.</p>
 
+<h2>Install Octopress</h2>
+
 <p>We start by taking a clone from the Octopress repository.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -120,6 +122,8 @@
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ rake install</span></code></pre></td></tr></table></div></figure>
 
 
+<h2>Setup Heroku</h2>
+
 <p>At this point we have a local install of Octopress/Jekyll and it is time to play with Heroku. Head over to thier <a href="https://api.heroku.com/signup">sign up page</a> to create an account. You will also need to have a public ssh key named <code>id_rsa.pub</code> available. If you haven&#8217;t yet set up a public/private ssh key pair then run.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -137,6 +141,8 @@
 
 
 <p>You should see that a Heroku application has been created for you and the address listed. The Heroku gem will also have added the Heroku app as a git remote.</p>
+
+<h2>Create some content</h2>
 
 <p>All we need to do now is to create some content and then push our new blog to Heroku.
 Run <code>rake new_post["my first post"]</code> to create a new post and open in your text editor of choice. By default Octopress uses <a href="http://daringfireball.net/projects/markdown">Markdown</a> to provide the text formatting.</p>
@@ -160,7 +166,7 @@ Run <code>rake new_post["my first post"]</code> to create a new post and open in
 </span><span class='line'>categories:
 </span><span class='line'>---
 </span><span class='line'>
-</span><span class='line'>Hello here I am one in seven billion!</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>Hello. Here I am one in seven billion!</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Once you are done and you have saved the we build the static content using <code>rake generate</code>, preview the blog locally on <a href="">localhost:4000</a> using <code>rake preview</code>, commit our project locally and then push it to heroku.</p>

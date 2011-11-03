@@ -88,6 +88,8 @@
 
 <p>This then is to be quick guide as to what is required to accomplish a sucessful Ruby on Rails install using RVM on Ubuntu 11.10.</p>
 
+<h2>Install Ubuntu</h2>
+
 <p>So first grab yourself a copy of <a href="http://www.ubuntu.com/download">Oneiric Ocelot</a> and get  it installed.</p>
 
 <p>Once you are up and running the fun can start. The first thing we need to do is install git and curl since these don&#8217;t come installed with Ubuntu by default.</p>
@@ -95,6 +97,8 @@
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo apt-get install curl git-core</span></code></pre></td></tr></table></div></figure>
 
+
+<h2>Install RVM</h2>
 
 <p>When completed we can go ahead and make use of our new tools to grab the latest release of RVM and get it installed.</p>
 
@@ -122,7 +126,7 @@
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm install 1.9.2</span></code></pre></td></tr></table></div></figure>
 
 
-<p>If during the installation you find that it is failing to download rubygems then you can manually download the rubygems.tgz and unpack it in the RVM source directory. Then a second installation attempt sholud prove more sucessful.</p>
+<p>If during the installation you find that it is failing to download rubygems then you can manually download the rubygems.tgz and unpack it in the RVM source directory. Then a second installation attempt should prove more sucessful.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -147,6 +151,8 @@
 </span><span class='line'>$ ruby -v
 </span><span class='line'>$ which ruby</span></code></pre></td></tr></table></div></figure>
 
+
+<h2>Install Rails</h2>
 
 <p>Finally install Bundler and the latest version of Rails (3.1 at time of writing)</p>
 

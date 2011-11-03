@@ -17,6 +17,8 @@ As mentioned in my first post "[right so here we are then](/blog/2011/10/14/righ
 
 So what does it take to hook these things together and start blogging then? Not much.
 
+## Install Octopress
+
 We start by taking a clone from the Octopress repository.
 
 ```
@@ -45,6 +47,8 @@ We complete the process by running a rake task to install the components that ma
 $ rake install
 ```
 
+## Setup Heroku
+
 At this point we have a local install of Octopress/Jekyll and it is time to play with Heroku. Head over to thier [sign up page](https://api.heroku.com/signup) to create an account. You will also need to have a public ssh key named `id_rsa.pub` available. If you haven't yet set up a public/private ssh key pair then run.
 
 ```
@@ -61,6 +65,8 @@ $ heroku create
 
 You should see that a Heroku application has been created for you and the address listed. The Heroku gem will also have added the Heroku app as a git remote.
 
+## Create some content
+
 All we need to do now is to create some content and then push our new blog to Heroku.
 Run `rake new_post["my first post"]` to create a new post and open in your text editor of choice. By default Octopress uses [Markdown](http://daringfireball.net/projects/markdown) to provide the text formatting.
 
@@ -75,7 +81,7 @@ comments: true
 categories:
 ---
 
-Hello here I am one in seven billion!
+Hello. Here I am one in seven billion!
 ```
 
 Once you are done and you have saved the we build the static content using `rake generate`, preview the blog locally on [localhost:4000]() using `rake preview`, commit our project locally and then push it to heroku.

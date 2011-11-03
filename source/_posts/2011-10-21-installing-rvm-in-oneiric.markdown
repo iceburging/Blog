@@ -13,6 +13,8 @@ For those of you that don't know Oneiric Ocelot is the latest incarnation of the
 
 This then is to be quick guide as to what is required to accomplish a sucessful Ruby on Rails install using RVM on Ubuntu 11.10.
 
+## Install Ubuntu
+
 So first grab yourself a copy of [Oneiric Ocelot](http://www.ubuntu.com/download) and get  it installed.
 
 Once you are up and running the fun can start. The first thing we need to do is install git and curl since these don't come installed with Ubuntu by default.
@@ -20,6 +22,8 @@ Once you are up and running the fun can start. The first thing we need to do is 
 ```
 $ sudo apt-get install curl git-core
 ```
+
+## Install RVM
 
 When completed we can go ahead and make use of our new tools to grab the latest release of RVM and get it installed.
 
@@ -46,7 +50,7 @@ You should see *rvm is a function* and can proceed to install Ruby 1.9.2 using R
 $ rvm install 1.9.2
 ```
 
-If during the installation you find that it is failing to download rubygems then you can manually download the rubygems.tgz and unpack it in the RVM source directory. Then a second installation attempt sholud prove more sucessful.
+If during the installation you find that it is failing to download rubygems then you can manually download the rubygems.tgz and unpack it in the RVM source directory. Then a second installation attempt should prove more sucessful.
 
 ```
 $ cd ~/Downloads
@@ -64,6 +68,8 @@ $ rvm use 1.9.2 --default
 $ ruby -v
 $ which ruby
 ```
+
+## Install Rails
 
 Finally install Bundler and the latest version of Rails (3.1 at time of writing)
 
